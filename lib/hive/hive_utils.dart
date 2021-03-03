@@ -1,5 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:simple_note/model/note_model.dart';
 
 class HiveUtils {
   static initializeHive() async {
@@ -12,5 +13,7 @@ class HiveUtils {
     Hive.close();
   }
 
-  static _setupHiveAdapter() {}
+  static _setupHiveAdapter() {
+    Hive.registerAdapter(NoteModelAdapter());
+  }
 }
