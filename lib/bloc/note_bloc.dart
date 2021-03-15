@@ -33,7 +33,7 @@ class NoteBloc extends Bloc<NoteEvent, NoteState> {
       try {
         yield LoadingState();
         List<NoteModel> _listNote = await hiveService.getListNote();
-        if (_listNote != null) {
+        if (_listNote.isNotEmpty) {
           yield LoadSuccessState(noteList: _listNote);
         } else {
           yield LoadEmptyDataState();
